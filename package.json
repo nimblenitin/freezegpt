@@ -1,0 +1,17 @@
+{
+  "name": "freeze",
+  "version": "1.0.0",
+  "description": "Chrome Extension to freeze/pin ChatGPT code blocks into floating windows",
+  "main": "src/content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chrome-extension",
+    "chatgpt",
+    "code-blocks",
+    "freeze"
+  ],
+  "author": "",
+  "license": "MIT"
+}

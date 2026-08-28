@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Freeze",
+  "version": "1.0.0",
+  "description": "Freeze/pin code blocks from ChatGPT into floating windows",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"],
+      "js": ["src/detector.js", "src/floating-window.js", "src/content.js"],
+      "css": ["src/styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+/**
+ * Freeze Chrome Extension Styles
+ * Works with both light and dark modes
+ */
+
+/* Freeze button on code blocks */
+.freeze-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+  z-index: 100;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.freeze-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+pre:hover .freeze-btn {
+  opacity: 1;
+}
+
+/* Floating window */
+.freeze-floating-window {
+  position: fixed;
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-width: 200px;
+  min-height: 150px;
+}
+
+/* Header */
+.freeze-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #2d2d2d;
+  cursor: move;
+  user-select: none;
+}
+
+.freeze-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.freeze-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.freeze-copy-btn,
+.freeze-close-btn {
+  background: transparent;
+  border: none;
+  color: #a0a0a0;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.freeze-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.freeze-close-btn {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.freeze-close-btn:hover {
+  background: rgba(255, 80, 80, 0.2);
+  color: #ff5050;
+}
+
+/* Content area */
+.freeze-content {
+  flex: 1;
+  overflow: auto;
+  background: #1e1e1e;
+}
+
+.freeze-code {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.freeze-code-content {
+  padding: 12px 0;
+}
+
+.freeze-line {
+  display: flex;
+  padding: 0 14px;
+  min-height: 20px;
+}
+
+.freeze-line:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.freeze-line-number {
+  color: #6a6a6a;
+  text-align: right;
+  padding-right: 16px;
+  min-width: 40px;
+  user-select: none;
+}
+
+.freeze-line-text {
+  color: #d4d4d4;
+  white-space: pre;
+}
+
+/* Resize handle */
+.freeze-resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  background: linear-gradient(
+    135deg,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%
+  );
+  border-radius: 0 0 12px 0;
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+  .freeze-floating-window {
+    background: #ffffff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .freeze-header {
+    background: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .freeze-title {
+    color: #333;
+  }
+
+  .freeze-copy-btn,
+  .freeze-close-btn {
+    color: #666;
+  }
+
+  .freeze-copy-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+  }
+
+  .freeze-close-btn:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: #cc0000;
+  }
+
+  .freeze-content {
+    background: #ffffff;
+  }
+
+  .freeze-line:hover {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .freeze-line-number {
+    color: #999;
+  }
+
+  .freeze-line-text {
+    color: #333;
+  }
+
+  .freeze-btn {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+
+  .freeze-btn:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+
+  .freeze-resize-handle {
+    background: linear-gradient(
+      135deg,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 50%
+    );
+  }
+}
+
+/* Scrollbar styling */
+.freeze-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.freeze-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.freeze-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.freeze-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-color-scheme: light) {
+  .freeze-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .freeze-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
