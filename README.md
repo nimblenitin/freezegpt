@@ -1,10 +1,10 @@
-# Freeze
+# FreezeGPT
 
-Pin ChatGPT code blocks into floating windows.
+Pin chat section into floating windows.
 
 ## Why?
 
-Code scrolls away as you keep chatting. This lets you freeze it on screen.
+messages scrolls away as you keep chatting. This lets you freeze it on screen.
 
 ## Install
 
@@ -26,3 +26,6 @@ Code scrolls away as you keep chatting. This lets you freeze it on screen.
 - Works on chat.openai.com and chatgpt.com
 - Refresh the page after installing
 - Multiple windows supported
+
+## Next
+- Need to make it platform agnostic
